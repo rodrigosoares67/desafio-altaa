@@ -51,6 +51,9 @@ Realizei a configuração da plataforma em uma VPS para facilitar o acesso e os 
 - [Frontend](http://web.altaa.r7tech.com.br)
 - [Visualização de e-mails (MailHog)](http://mail.altaa.r7tech.com.br)
 
+### Testes
+- Realizei a implementação de testes no `company.service`, onde testa a criação da empresa e checa se ocorreu tudo bem no procedimento. No final dos prints consta a imagem demonstrando a execução dos testes e o resultado, todos OK.
+
 ### Tempo total gasto
 - Aproxidamente 18 horas totais, considerando backend, frontend, estruturação do docker, apontamento de DNS, configuração NGINX, SSL, deploy e correções pontuais identificadas para execução na VPS.
 
@@ -85,6 +88,9 @@ Realizei a configuração da plataforma em uma VPS para facilitar o acesso e os 
 
 - Swagger
 ![Swagger](./docs/swagger.png)
+
+- Testes (Backend)
+![Testes backend](./docs/testes-backend.png)
 
 Obs: utilizei meu domínio principal e habilitei os subdomínios para viabilizar a disponibilização da plataforma
 
