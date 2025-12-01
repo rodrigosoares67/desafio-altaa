@@ -51,8 +51,10 @@ export class AuthController {
   private setCookie(response: Response, token: string) {
     response.cookie('Authentication', token, {
       httpOnly: true, 
-      secure: process.env.NODE_ENV === 'production', 
-      sameSite: 'lax', 
+      secure: process.env.COOKIE_SECURE === 'true',
+      sameSite: process.env.COOKIE_SAME_SITE as 'none' | 'lax' | 'strict',
+      domain: process.env.COOKIE_DOMAIN, 
+      path: '/',
       maxAge: 24 * 60 * 60 * 1000, 
     });
   }

@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - '35432:5432'
+      - '45432:5432'
     volumes:
       - pgdata:/var/lib/postgresql/data
     restart: on-failure
@@ -28,6 +28,7 @@ services:
     env_file:
       - .env
     environment:
+      NODE_ENV: ${ENV}
       PORT: ${BACKEND_PORT}
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}?schema=public
       SMTP_HOST: "${SMTP_HOST}"
@@ -35,19 +36,25 @@ services:
       SMTP_USER: ${SMTP_USER}
       SMTP_PASS: ${SMTP_PASS}
       JWT_SECRET: ${JWT_SECRET}
+      FRONTEND_URL: ${FRONTEND_URL}
+      COOKIE_DOMAIN: ${COOKIE_DOMAIN}
+      COOKIE_SECURE: ${COOKIE_SECURE}
+      COOKIE_SAME_SITE: ${COOKIE_SAME_SITE}
     depends_on:
       db:
         condition: service_healthy
     ports:
-      - "3001:3001"
+      - "3003:3001"
 
   frontend:
     build:
       context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: "${API_URL}"
     ports:
-      - '3000:3000'
+      - '3002:3000'
     environment:
-      NEXT_PUBLIC_API_URL: "${FRONTEND_URL}"
+      NEXT_PUBLIC_API_URL: "${API_URL}"
     depends_on:
       - api
 
