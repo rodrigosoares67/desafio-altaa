@@ -16,6 +16,10 @@ docker-compose --env-file .env up -d
 - [Frontend](http://localhost:3000)
 - [Visualização de e-mails (MailHog)](http://localhost:8025)
 
+## Usuário inicial:
+- E-mail: `admin@altaa.com.br`
+- Senha: `123456`
+
 ## Stack tecnológica e decisões
 
 ### Backend (NestJS)
