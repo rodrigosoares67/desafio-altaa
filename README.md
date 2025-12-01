@@ -51,6 +51,41 @@ Realizei a configuração da plataforma em uma VPS para facilitar o acesso e os 
 - [Frontend](http://web.altaa.r7tech.com.br)
 - [Visualização de e-mails (MailHog)](http://mail.altaa.r7tech.com.br)
 
+### Tempo total gasto
+- Aproxidamente 18 horas totais, considerando backend, frontend, estruturação do docker, apontamento de DNS, configuração NGINX, SSL, deploy e correções pontuais identificadas para execução na VPS.
+
+### Prints para demonstração
+
+- Tela inicial
+![Tela inicial](./docs/landing.png)
+
+- Login
+![Tela de Login](./docs/login.png)
+
+- Listagem empresas
+![Tela de Login](./docs/empresas.png)
+
+- Gestão da empresa selecionada
+![Tela de Login](./docs/empresa.png)
+
+- Envio de convite
+![Envio convite](./docs/envio-convite.png)
+
+- Convite recebido
+![Convite recebido](./docs/convite-recebido.png)
+
+- Detalhes do e-mail do convite
+![Detalhes do convite recebido](./docs/detalhes-convite.png)
+
+- Aceitar convite
+![Aceitar convite](./docs/aceitar-convite.png)
+
+- Acesso na empresa após aceitar o convite
+![Acesso na empresa após aceitar o convite](./docs/visualizando-empresa-aceita.png)
+
+- Swagger
+![Swagger](./docs/swagger.png)
+
 Obs: utilizei meu domínio principal e habilitei os subdomínios para viabilizar a disponibilização da plataforma
 
 Qualquer dúvida fico à disposição: (34)99222-6453 | rodrigocarvalhosoares@gmail.com
