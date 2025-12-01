@@ -12,8 +12,8 @@ docker-compose --env-file .env up -d
 ```
 
 ### Links relacionados à aplicação
-- [Documentação da API - Swagger](http://localhost:3001/docs)
-- [Frontend](http://localhost:3000)
+- [Documentação da API - Swagger](http://localhost:3003/docs)
+- [Frontend](http://localhost:3002)
 - [Visualização de e-mails (MailHog)](http://localhost:8025)
 
 ## Usuário inicial:
