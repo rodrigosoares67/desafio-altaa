@@ -44,18 +44,24 @@ export class AuthController {
   @Post('logout')
   @HttpCode(HttpStatus.OK)
   async logout(@Res({ passthrough: true }) response: Response) {
-    response.clearCookie('Authentication');
+    response.clearCookie('Authentication', this.getCookieOptions());
     return { message: 'Logged out successfully' };
+  }
+
+  private getCookieOptions() {
+    return {
+      httpOnly: true,
+      secure: process.env.COOKIE_SECURE === 'true',
+      sameSite: process.env.COOKIE_SAME_SITE as 'none' | 'lax' | 'strict',
+      domain: process.env.COOKIE_DOMAIN,
+      path: '/',
+    };
   }
 
   private setCookie(response: Response, token: string) {
     response.cookie('Authentication', token, {
-      httpOnly: true, 
-      secure: process.env.COOKIE_SECURE === 'true',
-      sameSite: process.env.COOKIE_SAME_SITE as 'none' | 'lax' | 'strict',
-      domain: process.env.COOKIE_DOMAIN, 
-      path: '/',
-      maxAge: 24 * 60 * 60 * 1000, 
+      ...this.getCookieOptions(),
+      maxAge: 24 * 60 * 60 * 1000,
     });
   }
 }
