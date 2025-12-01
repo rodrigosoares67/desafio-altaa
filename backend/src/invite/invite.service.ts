@@ -3,7 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { AcceptInviteDto } from './dto/accept-invite.dto';
 import * as bcrypt from 'bcrypt';
 import { randomBytes } from 'crypto';
-import { EmailService } from 'src/email/email.service';
+import { EmailService } from '../email/email.service';
 import { Role } from '@prisma/client';
 import { CreateInviteDto } from './dto/create-invite.dto';
 

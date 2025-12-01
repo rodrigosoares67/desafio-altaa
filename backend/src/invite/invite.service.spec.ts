@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { InviteService } from './invite.service';
 import { PrismaService } from '../prisma/prisma.service';
-import { MailerService } from '@nestjs-modules/mailer';
+import { EmailService } from '../email/email.service';
 
 describe('InviteService', () => {
   let service: InviteService;
@@ -14,20 +14,20 @@ describe('InviteService', () => {
           provide: PrismaService,
           useValue: {
             membership: { findUnique: jest.fn(), create: jest.fn() },
-            invite: { 
-              upsert: jest.fn(), 
-              deleteMany: jest.fn(), 
-              create: jest.fn(), 
-              findUnique: jest.fn(), 
-              delete: jest.fn() 
+            invite: {
+              upsert: jest.fn(),
+              deleteMany: jest.fn(),
+              create: jest.fn(),
+              findUnique: jest.fn(),
+              delete: jest.fn(),
             },
             user: { findUnique: jest.fn(), create: jest.fn() },
           },
         },
         {
-          provide: MailerService,
+          provide: EmailService,
           useValue: {
-            sendMail: jest.fn(),
+            sendInviteEmail: jest.fn(),
           },
         },
       ],
